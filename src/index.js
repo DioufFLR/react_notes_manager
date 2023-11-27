@@ -9,6 +9,8 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import NoteBrowse from "./pages/NoteBrowse/NoteBrowse";
 import Note from "./pages/Note/Note";
 import NoteCreate from "./pages/NoteCreate/NoteCreate";
+import {DevSupport} from "@react-buddy/ide-toolbox";
+import {ComponentPreviews, useInitial} from "./dev";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -17,7 +19,11 @@ root.render(
         <Provider store={ store }>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={ <App/> }>
+                    <Route path='/' element={ <DevSupport ComponentPreviews={ ComponentPreviews }
+                                                          useInitialHook={ useInitial }
+                    >
+                        <App/>
+                    </DevSupport> }>
                         <Route path='/' element={ <NoteBrowse/> }/>
                         <Route path='/note/:noteId' element={ <Note/> }/>
                         <Route path='/note/new' element={ <NoteCreate/> }/>
