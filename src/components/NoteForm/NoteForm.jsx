@@ -4,6 +4,7 @@ import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
 import {useState} from "react";
 import {ValidatorService} from "../../services/form-validators";
 import FieldError from "../FieldError/FieldError";
+import {noteReducer} from "../../store/note/note-slice";
 
 const VALIDATORS = {
     title: ( value ) =>
@@ -16,7 +17,14 @@ const VALIDATORS = {
     },
 }
 
-const NoteForm = ( {title, onClickEdit, onClickTrash, onSubmit} ) =>
+const NoteForm = ( {
+                       isEditable = true,
+                       title,
+                       note,
+                       onClickEdit,
+                       onClickTrash,
+                       onSubmit
+                   } ) =>
 {
 
     const [formValues, setFormValues] = useState({title: '', content: ''});
@@ -94,8 +102,9 @@ const NoteForm = ( {title, onClickEdit, onClickTrash, onSubmit} ) =>
                 </div>
                 { actionIcons }
             </div>
-            <div className={ `mb-3 ${ s.title_input_container }` }>{ titleInput }</div>
-            <div className={ `mb-3 ${ s.content_input_container }` }>{ contentInput }</div>
+            <div className={ `mb-3 ${ s.title_input_container }` }>{ isEditable && titleInput }</div>
+            <div
+                className={ `mb-3 ${ s.content_input_container }` }>{ isEditable ? contentInput : <pre>{ note.content }</pre> }</div>
             { onSubmit && submitInput }
         </form>
     );
