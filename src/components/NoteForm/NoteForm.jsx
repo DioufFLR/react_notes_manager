@@ -20,7 +20,11 @@ const NoteForm = ( {title, onClickEdit, onClickTrash, onSubmit} ) =>
 {
 
     const [formValues, setFormValues] = useState({title: '', content: ''});
-    const[formErrors, setFormErrors] = useState({title: undefined, content: undefined});
+    const [formErrors, setFormErrors] = useState({title: '', content: ''});
+
+    function hasError() {
+        return Object.values(formErrors).some(error => error !== undefined)
+    }
 
     function updateFormValues( e ) {
         setFormValues({...formValues, [e.target.name]: e.target.value})
@@ -28,8 +32,8 @@ const NoteForm = ( {title, onClickEdit, onClickTrash, onSubmit} ) =>
     }
 
 
-    function validate(fieldName, fieldValue) {
-        setFormErrors({...formErrors, [fieldName]:VALIDATORS[fieldName](fieldValue)})
+    function validate( fieldName, fieldValue ) {
+        setFormErrors({...formErrors, [fieldName]: VALIDATORS[fieldName](fieldValue)})
     }
 
     const actionIcons = (
@@ -53,7 +57,7 @@ const NoteForm = ( {title, onClickEdit, onClickTrash, onSubmit} ) =>
                 name='title'
                 className="form-control"
             />
-            <FieldError msg={formErrors.title} />
+            <FieldError msg={ formErrors.title }/>
         </div>
     )
 
@@ -67,13 +71,18 @@ const NoteForm = ( {title, onClickEdit, onClickTrash, onSubmit} ) =>
                 className="form-control"
                 row='5'
             />
-            <FieldError msg={formErrors.content} />
+            <FieldError msg={ formErrors.content }/>
         </div>
     );
 
     const submitInput = (
         <div className={ s.submit_btn }>
-            <ButtonPrimary onClick={ () => onSubmit(formValues) }>Submit</ButtonPrimary>
+            <ButtonPrimary
+                isDisabled={ hasError() }
+                onClick={ () => onSubmit(formValues)
+                }>
+                Submit
+            </ButtonPrimary>
         </div>
     );
 
