@@ -1,10 +1,11 @@
 import s from './style.module.css'
+import NoteForm from "../../components/NoteForm/NoteForm";
 
 const NoteCreate = ( props ) =>
 {
     return (
         <>
-            Note Create
+            <NoteForm title='Create a note' />
         </>
     );
 };
