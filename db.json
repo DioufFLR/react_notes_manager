@@ -25,52 +25,16 @@
       "id": 8
     },
     {
-      "title": "React - useState()",
-      "content": "useState is a React hooks that gives access to a value and a setter.\nAny time the setter is called the value is updated and the component re-render.\nYou can pass a default value to useState.\n\nExample :\n\nconst [value,setValue] = useState(\"defaultValue\")",
-      "created_at": "23/08/2022",
-      "id": 9
-    },
-    {
       "title": "Javascript - Destructuring",
       "content": "The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables. \n\nExample :\n\nlet a, b, rest;\n[a, b] = [10, 20];\n\nconsole.log(a);\n// expected output: 10\n\nconsole.log(b);\n// expected output: 20\n\n[a, b, ...rest] = [10, 20, 30, 40, 50];\n\nconsole.log(rest);\n// expected output: Array [30,40,50]\n",
       "created_at": "13/10/2022",
       "id": 10
     },
     {
-      "title": "Javascript - map()",
-      "content": "The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.\n\nExample : \n\nconst array1 = [1, 4, 9, 16];\n\n// pass a function to map\nconst map1 = array1.map(x => x * 2);\n\nconsole.log(map1);\n// expected output: Array [2, 8, 18, 32]",
-      "created_at": "13/10/2022",
-      "id": 11
-    },
-    {
-      "title": "",
-      "content": "",
-      "created_at": "27/11/2023",
-      "id": 12
-    },
-    {
-      "title": "asdf",
-      "content": "gadsgagasdg",
-      "created_at": "27/11/2023",
-      "id": 13
-    },
-    {
-      "title": "asfas",
-      "content": "ggdassd",
-      "created_at": "27/11/2023",
-      "id": 14
-    },
-    {
       "title": "Bonjour",
       "content": "Je suis un test du projet en cours avec de multiple containers pleins de partout pourquoi je suis si gentil je ne le sais pas mais peut etre qu'un jour je le serais. Qui sais il faut vivre très longtemps pour le savoir et j'espère avoir cette chance , en tous cas je n'ai qu'un seul souhait c'est d'etre le plus heureux du monde et ce bonheur passe obligatoirement dans les bras de Yu.. Il faut que nous soyons réunis pour fonder notre propre famille et ce pour toute la vie.",
       "created_at": "27/11/2023",
       "id": 15
-    },
-    {
-      "title": "gfhhhhhhhhhhhhhhhhhhhhhhhhhhhh",
-      "content": "a",
-      "created_at": "27/11/2023",
-      "id": 16
     }
   ]
 }
