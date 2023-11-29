@@ -5,6 +5,7 @@ import {useState} from "react";
 import {useSelector} from "react-redux";
 import {store} from "../../store";
 import note from "../Note/Note";
+import {Link} from "react-router-dom";
 
 const NoteBrowse = ( props ) =>
 {
@@ -33,6 +34,16 @@ const NoteBrowse = ( props ) =>
                         placeholder='Search your notes...'
                     />
                 </div>
+
+                {
+                    noteList?.length === 0 && (
+                        <div className='d-flex justify-content-center'>
+                            <span className='m-3'>
+                                You don't have note, do you want <Link to='/note/new'>create</Link> one ?
+                            </span>
+                        </div>
+                    )
+                }
                 <NoteList noteList={ filteredList }/>
             </div>
         </>
